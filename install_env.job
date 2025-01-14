@@ -12,7 +12,7 @@ module purge
 module load 2023
 module load Anaconda3/2023.07-2
 
-cd $HOME/FACT
+cd $HOME/attack-gnn-fairness
 conda env create -n attack-gnn-fairness python=3.9\
 conda activate attack-gnn-fairness
 pip install -r requirements.txt
