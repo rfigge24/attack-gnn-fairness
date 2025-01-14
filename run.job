@@ -19,4 +19,4 @@ cd $HOME/attack-gnn-fairness/src
 # Activate your environment
 source activate attack-gnn-fairness
 # Run your code
-python train.py --dataset pokec_z  --model gcn  --attack_type none
+python train.py --dataset pokec_z   --model gcn  --attack_type fair_attack --direction y1s1 --strategy DD --ptb_rate  0.05
