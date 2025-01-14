@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=9
+#SBATCH --gpus=1
+#SBATCH --job-name=run
+#SBATCH --ntasks=1
+#SBATCH --time=02:00:00
+#SBATCH --mem=32000M
+#SBATCH --output=out_files/run_%A.out
+
+module purge
+module load 2023
+module load Anaconda3/2023.07-2
+module load CUDA/12.1.1
+
+cd $HOME/attack-gnn-fairness/src
+# Activate your environment
+source activate env
+# Run your code
+python train.py --dataset pokec_z  --model gcn  --attack_type none
