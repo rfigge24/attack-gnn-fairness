@@ -144,6 +144,12 @@ for model_name in args.model:
             if args.attack_type != 'none':
                 adj = attack(args, ptb_rate, adj, features, labels, sens, idx_train_atk, idx_val, idx_test,
                              seed, dataset, sens_attr, idx_sens_train)
+                #############################
+                # SAving attacked graph code here
+                G = dgl.from_scipy(adj)
+                dgl.save_graphs(f'../data/{args.dataset}_attacked_{repeat}.bin', G)
+                #############################
+
                 print("edge dist. after attack:")
                 check_dataset(dataset, adj, labels, sens, idx_train_gnn, idx_val, idx_test)
 
